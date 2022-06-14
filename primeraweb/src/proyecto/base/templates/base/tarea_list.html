@@ -1,0 +1,79 @@
+{% extends 'base/style.html' %}
+{% block content %}
+
+
+
+<div class="barra-superior">
+    <div>
+        {%if request.user.is_authenticated %}
+        <h1>Hola {{request.user|title}}</h1>
+        <h3 style="margin:0">Tienes <i>{{count}}</i> tarea{{count|pluralize}} incompleta{{count|pluralize}}</h3>
+        <a href="{% url 'logout' %}">Salir</a>
+        {% else %}
+            <a href="{% url 'login' %}">Ingresar</a>
+        {% endif %}
+        </div>
+</div>
+
+
+<h1>Lista Pendientes</h1>
+<div id="buscar">
+<form action="" method="get" style="margin-top:20px;display:flex;">
+
+    <input type="text" name="area-buscar" value="{{valor_buscado}}">
+    <input type="submit" value="Buscar" class="boton">
+</form>
+    <a href="{% url 'crear-tarea' %}" id="cruz-agregar">&#x1F7A5;</a>
+</div>
+<!--<table>
+
+    <tr>
+            <th>Elementos</th>
+            <th></th>
+            <th></th>
+            <th></th>
+    </tr>
+
+    {% for tarea in tareas %}
+
+        <tr>
+            <td>{{tarea.titulo}}</td>
+            <td><a href="{% url 'tarea' tarea.id %}">Ver</a></td>
+            <td><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></td>
+            <td><a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a></td>
+        </tr>
+    {% empty %}
+        <h3>No hay elementos en esta lista</h3>
+
+    {% endfor %}
+
+</table>-->
+
+<div class="envoltorio-items-tarea">
+
+
+
+         {% for tarea in tareas %}
+        <div class="envoltorio-tarea">
+
+            {% if tarea.completo %}
+            <div class="icono-tarea-completa"></div>
+            <div class="titulo-tarea"><i><s><a href="{% url 'tarea' tarea.id %}">{{tarea}}</a></s></i></div>
+            <a href="{% url 'eliminar-tarea' tarea.id %}">&#x274C;</a>
+            {%else%}
+            <div class="icono-tarea-incompleta"></div>
+            <div class="titulo-tarea"> <a href="{% url 'tarea' tarea.id %}">{{tarea}}</a> </div>
+            <a href="{% url 'eliminar-tarea' tarea.id %}">&#x274C;</a>
+            {% endif %}
+        </div>
+    {% empty %}
+        <h3>No hay elementos en esta lista</h3>
+
+    {% endfor %}
+
+
+</div>
+<hr>
+
+
+{% endblock content %}

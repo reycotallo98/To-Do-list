@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pendientes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            background-color: #5477EC;
+            font-family: 'Inter', sans-serif;
+            padding-top: 60px;
+            }
+        .container{
+            max-width: 550px;
+            margin: auto;
+            background-color: #66B8F1;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.41);
+            box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
+        }
+        .contenido{
+            margin: 15px;
+        }
+        a{
+            text-decoration: none;
+            color: #7200CB;
+        }
+        form input{
+            background-color: #6695F1;
+        }
+        .barra-superior{
+            justify-content: space-between;
+            padding: 10px;
+            border-radius:5px 5px 0 0;
+            background: linear-gradient(90deg,#44B86C 0%,#268748 43%,#12632E %100);
+        }
+        th,tr{
+            border: black 1px solid
+        }
+        .envoltorio-tarea{
+            display: flex;
+            align-items: left;
+            border-top: 1px solid #9895FF;
+            padding: 20px;
+
+
+        }
+        .envoltorio-items-tarea a{
+            color: #FFFFFF
+            }
+        .icono-tarea-completa{
+            height: 20px;
+            width: 20px;
+            background-color: #64EC64;
+            border-radius: 50px;
+            margin-right: 5px;
+        }
+        .icono-tarea-incompleta{
+            height: 20px;
+            width: 20px;
+            border-radius: 50px;
+            background-color: #FC5252;
+            margin-right: 5px;
+        }
+        .titulo-tarea {
+        display:flex;
+        margin-left:1px;
+        margin-right: 5px;
+       }
+       #buscar{
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            padding: 10px;
+
+       }
+       #cruz-agregar{
+            font-size : 42px;
+            text-shadow: 1px 1px #81413B;
+            color: #EA4220;
+       }
+       input[type=text],
+       input[type=password],textarea{
+        border: 1px solid #EB796F;
+        border-radius: 5px;
+        padding: 10px;
+        width: 90%;
+       }
+        label{
+        padding-top:10px !important;
+        display:block;
+        }
+        .button{
+        border:1px solid #EB796F;
+        background-color: #FAFAFA;
+        color: #EB796F;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contenido">
+        {% block content %}
+
+        {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>
